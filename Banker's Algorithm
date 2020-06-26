@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<vector<int> >available;
+
+struct process{
+    vector<int> need,allocation;
+}
+
+void init() //输入初始状态
+{
+    //输入资源种类
+    //输入初始资源的数量
+    //输入进程数
+    //输入每个进程需要的资源
+    //如果有需要，输入已经分配的资源情况
+}
+
+bool isSecure()
+{
+    //安全性检查
+    //输出安全序列
+}
+
+bool tryAllocate()//尝试分配
+{
+    //复制向量
+    //分配
+    //安全性检查
+}
+
+int main()
+{
+    init();
+    
+    while(true)
+    {
+        int pid;
+        cout<<"Enter the pid: ";
+        cin>>pid;
+        cout<<"Enter the resource vector of process "<<pid<<" : "<<endl;
+        //输入请求向量
+        //假如可以分配，分配向量，输出目前状态
+        //如果请求向量大于所需资源向量，输出错误信息 
+        //如果请求向量大于当前可利用资源向量，则让进程等待
+    }
+    
+    return 0;
+}
