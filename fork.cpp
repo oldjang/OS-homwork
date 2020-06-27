@@ -13,7 +13,7 @@ int main()
         if(fpid==-1)
             cout<<"ERROR"<<endl; //如果创建进程错误
         if(fpid==0){
-            ch=ch+i+1; //如果是子进程，那么用ch标识不同进程
+            ch=ch+1; //如果是子进程，那么用ch标识不同进程
             break;
         }
     }
