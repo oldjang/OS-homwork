@@ -69,7 +69,7 @@ void init() //输入初始状态
     }
 
     //如果有需要，输入已经分配的资源情况
-    cout << "Do you need to allocate resources in advance?(y:yes,n:no)" << endl;
+    cout << "Do you need to allocate resources in advance?(y:yes,n:no)";
     for (int i = 0; i < processNum; i++)
         process[i].allocation.resize(resourceType);
     char yOrn;
@@ -82,6 +82,8 @@ void init() //输入初始状态
             cout << "Enter the number of each resource allocated to the " << i << "-th process : ";
             for (int j = 0; j < resourceType; j++)
                 cin >> process[i].allocation[j];
+            available = available - process[i].allocation;
+            process[i].need = process[i].need - process[i].allocation;
         }
     }
 }
@@ -89,7 +91,8 @@ void init() //输入初始状态
 vector<int> findSafeSequence() //安全性检查
 {
     vector<int> nowAvailable = available;
-    vector<bool> released(false, processNum);
+    vector<bool> released;
+    released.resize(processNum);
     vector<int> safeSequence;
 
     for (int i = 0; i < processNum; i++)
