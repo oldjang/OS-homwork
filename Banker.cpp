@@ -96,7 +96,7 @@ vector<int> findSafeSequence() //安全性检查
     {
         bool flag = 0;
         for (int j = 0; j < processNum; j++)
-            if (process[j].need <= nowAvailable)
+            if (process[j].need <= nowAvailable && !released[j])
             {
                 released[j] = true;
                 nowAvailable = nowAvailable + process[j].allocation;
@@ -119,7 +119,7 @@ int main()
 
     while (true)
     {
-        cout << "Now the need matrix is:" << endl;
+        cout << "Now the need matrix is: " << endl;
         for (int i = 0; i < processNum; i++)
         {
             for (int j = 0; j < resourceType; j++)
@@ -127,7 +127,7 @@ int main()
             cout << endl;
         }
 
-        cout << "Now the available vector is:" << endl;
+        cout << "Now the available vector is: " << endl;
         for (int i = 0; i < resourceType; i++)
             cout << available[i] << ' ';
         cout << endl;
@@ -135,7 +135,7 @@ int main()
         int pid;
         cout << "Enter the pid: ";
         cin >> pid;
-        cout << "Enter the resource vector of process " << pid << " : " << endl;
+        cout << "Enter the resource vector of process " << pid << " : ";
 
         //输入请求向量
         vector<int> request;
