@@ -35,7 +35,7 @@ void print()
 
 void allocate(int num)
 {
-    if (num < bitCount)
+    if (num + bitCount > 8 * ByteNum)
     {
         cout << "Insufficient disk space!" << endl;
         return;
@@ -100,7 +100,6 @@ int main()
             cin >> cid >> tid >> pid;
             freeMem(cid, tid, pid);
         }
-        
     }
     return 0;
 }
